@@ -1,0 +1,8 @@
+.userCard {
+  border: dotted 1px gray;
+  padding: 0.5em;
+  margin: 0.5em;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
