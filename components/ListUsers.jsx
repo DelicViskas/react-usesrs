@@ -23,8 +23,6 @@ export default function ListUsers() {
       const getPromise = () => {
         switch (action) {
           case 'DEL':
-            console.log(id);
-            
             optimisticData = data.filter(el => String(el.id) !== id)
             return fetch(`${API_URL}/${id}`, { method: 'DELETE' })
               .then(res => {
@@ -51,7 +49,7 @@ export default function ListUsers() {
         promise = getPromise();
       if (promise) {
         toast.promise(promise, {
-          loading: action,
+          loading: action.toLowerCase(),
           success: 'ok',
           error: (err) => `${err.toString()}`,
         })
