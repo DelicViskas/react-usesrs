@@ -1,12 +1,12 @@
 import classes from '@/components/UserCard/UserCard.module.css'
 
-export default function UserCard({ data, del }) {
+export default function UserCard({ data }) {
   const
-    { name, id, email, phone, address: { city } = '', address: { street } ='', address: { suite } = '', company: { name: cname } = '' } = data;
+    { name, id, email, phone, address: { city } = '', address: { street } = '', address: { suite } = '', company: { name: cname } = '' } = data;
 
-
+  
   return (
-    <div className={classes.userCard}>
+    <div data-id={id} className={classes.userCard}>
       <span>{name} ({id})</span>
       <span>{email}</span>
       <span>{phone}</span>
@@ -15,8 +15,8 @@ export default function UserCard({ data, del }) {
         <span>{street} </span>
         <span>{suite}</span>
       </div>
-      <div>{cname? 'Company:' : ''} <span>{cname}</span></div>
-      <button onClick={()=>del(id)}>❌del</button>
+      <div>{cname ? 'Company:' : ''} <span>{cname}</span></div>
+      <button data-action={'DEL'}>❌del</button>
     </div>
   )
 }

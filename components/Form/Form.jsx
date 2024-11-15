@@ -1,12 +1,12 @@
 import classes from '@/components/Form/Form.module.css';
 import { useState } from 'react';
 
-export default function Form({ add }) {
-  const [valueForm, setValueForm] = useState({ name: '', email: '', phone: '' });
-  
-  const changeValue = (name, value) => {
-    setValueForm(prev => ({ ...prev, [name]: value }));
-  };
+export default function Form() {
+  const
+    [valueForm, setValueForm] = useState({ name: '', email: '', phone: '' }),
+    changeValue = (name, value) => {
+      setValueForm(prev => ({ ...prev, [name]: value }));
+    };
 
   return (
     <form className={classes.form} onSubmit={event => event.preventDefault()}>
@@ -34,8 +34,8 @@ export default function Form({ add }) {
         />
         phone
       </label>
-      <button
-        onClick={() => { add(valueForm); setValueForm({ name: '', email: '', phone: '' }); }}>
+      <button data-action={'ADD'}
+        onClick={() => setValueForm({ name: '', email: '', phone: '' })}>
         ➕add</button>
     </form>
   );
